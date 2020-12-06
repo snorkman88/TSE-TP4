@@ -25,7 +25,7 @@ class adc:
     ATTN_11DB = None
     def channel(pin, attn):
         def read():
-            return 1900
+            return 1965
         return read
 
 ###-------------------Functions to be tested-------------------###
@@ -108,6 +108,6 @@ def test_get_ADC_value_from_invalid_pin_non_analog():
 
 def test_get_ADC_from_valid_pin():
     value = get_ADC_value('P13')
-    assert value == 1900
+    assert value == 1965
     assert isinstance(value, int)
 

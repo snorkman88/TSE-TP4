@@ -24,8 +24,8 @@ Para realizar una mimica del comportamiento de las dependencias externas se han 
 En esta bateria de tests, se verifica el funcionamiento de 3 funciones que se encargan de:
 1.  habilitar o deshabilitar etapas de electronica que funcionan a 3.3V o 5V mediante un interruptor de estado solido.  
 ![switches](https://github.com/snorkman88/TSE-TP4/blob/main/switches.png)  
-..1. Si la tension es menor a 1,5V, no se deberá activar el switch de 3.3V ni 5V
-..2. Si la tension es mayor a 1,5V, no se deberá activar el switch de 3.3V ni 5V
+ Si la tension es menor a 1,5V, no se deberá activar el switch de 3.3V ni 5V.  
+ Si la tension es mayor a 1,5V, no se deberá activar el switch de 3.3V ni 5V.  
 2. Tomar una lectura de una senal analogica a la entrada de un PIN de la placa de desarrollo.  
 
 ### Mockups

@@ -20,7 +20,7 @@ class adc:
     """
     This is a dummy mock for Pycom's ADC class.
     It receives two useless arguments and returns another function
-    that when invoked, returns a mocked ADC value of 1900
+    that when invoked, returns a mocked ADC value of 1965
     """
     ATTN_11DB = None
     def channel(pin, attn):

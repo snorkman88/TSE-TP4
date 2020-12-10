@@ -1,6 +1,3 @@
-import pytest
-import time
-
 """
 The HW will make use of the onboard RGB LED on the dev board to indicate 
 the battery level.
@@ -38,7 +35,7 @@ class Pin:
 class pycom:
     def rgbled(valor):
         global RGB_LED
-        RGB_LED = valor 
+        RGB_LED = valor
 
 
 ###--------------------FUNCTION TO BE TESTED-------------------###
@@ -48,45 +45,12 @@ def voltage_indicator(adc_value):
     global VALOR_CRITICO
 
     ENABLE_LED_INDICATOR = Pin('P10', mode=Pin.IN, pull=Pin.PULL_UP)
-    
+
     if ENABLE_LED_INDICATOR():
         if adc_value < VALOR_CRITICO:
-            pycom.rgbled(RED)            
+            pycom.rgbled(RED)
         if adc_value >= VALOR_CRITICO:
             pycom.rgbled(GREEN)
     else:
             pycom.rgbled(LED_OFF)
 
-
-###--------------------TESTs-------------------###
-def test_voltage_indicator_disabled():
-    global DEBUG_ENABLE_PIN
-    global RGB_LED
-    DEBUG_ENABLE_PIN = False
-    ADC_VALUE = VALOR_CRITICO + 1
-    voltage_indicator(ADC_VALUE)
-    assert hex(RGB_LED) == hex(LED_OFF)
-
-def test_voltage_indicator_low_batt():
-    global DEBUG_ENABLE_PIN
-    global RGB_LED
-    DEBUG_ENABLE_PIN = True
-    ADC_VALUE = VALOR_CRITICO - 1
-    voltage_indicator(ADC_VALUE)
-    assert hex(RGB_LED) == hex(RED)
-
-def test_voltage_indicator_batt_ok_limit():
-    global DEBUG_ENABLE_PIN
-    global RGB_LED
-    DEBUG_ENABLE_PIN = True
-    ADC_VALUE = VALOR_CRITICO
-    voltage_indicator(ADC_VALUE)
-    assert hex(RGB_LED) == hex(GREEN)
-
-def test_voltage_indicator_batt_ok():
-    global DEBUG_ENABLE_PIN    
-    global RGB_LED
-    DEBUG_ENABLE_PIN = True
-    ADC_VALUE = VALOR_CRITICO + 1
-    voltage_indicator(ADC_VALUE)
-    assert hex(RGB_LED) == hex(GREEN)

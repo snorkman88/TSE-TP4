@@ -1,5 +1,7 @@
 import pytest
 import time
+#from ..voltage_indicator import Pin, voltage_indicator
+#from conftest import  DEBUG_ENABLE_PIN, RGB_LED, LED_OFF, RED, GREEN, VALOR_CRITICO
 
 """
 The HW will make use of the onboard RGB LED on the dev board to indicate 
@@ -10,15 +12,22 @@ NOTE: Use this feature FOR DEBUGGING PURPOSES ONLY.
 HOW TO USE IT:
 By default, this feature is ENABLED. Short 'P10' to GND, to disable it. 
 """
+
+#def pytest_configure():
+#    pytest.DEBUG_ENABLE_PIN = False
+#    pytest.RGB_LED = 0x000000
+#    pytest.LED_OFF = 0x000000
+#    pytest.RED = 0xff0000
+#    pytest.GREEN = 0x00ff00
+
 DEBUG_ENABLE_PIN = False
 
-RGB_LED = None
+RGB_LED = 0x000000
 LED_OFF = 0x000000
 RED = 0xff0000
 GREEN = 0x00ff00
 
 VALOR_CRITICO = 1965
-
 
 ###-----------------MOCKUPs----------------------###
 class Pin:
@@ -38,7 +47,7 @@ class Pin:
 class pycom:
     def rgbled(valor):
         global RGB_LED
-        RGB_LED = valor 
+        RGB_LED = valor
 
 
 ###--------------------FUNCTION TO BE TESTED-------------------###
@@ -48,10 +57,10 @@ def voltage_indicator(adc_value):
     global VALOR_CRITICO
 
     ENABLE_LED_INDICATOR = Pin('P10', mode=Pin.IN, pull=Pin.PULL_UP)
-    
+
     if ENABLE_LED_INDICATOR():
         if adc_value < VALOR_CRITICO:
-            pycom.rgbled(RED)            
+            pycom.rgbled(RED)
         if adc_value >= VALOR_CRITICO:
             pycom.rgbled(GREEN)
     else:

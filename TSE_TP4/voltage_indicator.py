@@ -7,14 +7,14 @@ NOTE: Use this feature FOR DEBUGGING PURPOSES ONLY.
 HOW TO USE IT:
 By default, this feature is ENABLED. Short 'P10' to GND, to disable it. 
 """
-DEBUG_ENABLE_PIN = False
+#DEBUG_ENABLE_PIN = False
 
-RGB_LED = None
-LED_OFF = 0x000000
-RED = 0xff0000
-GREEN = 0x00ff00
+#RGB_LED = 0x000000
+#LED_OFF = 0x000000
+#RED = 0xff0000
+#GREEN = 0x00ff00
 
-VALOR_CRITICO = 1965
+#VALOR_CRITICO = 1965
 
 
 ###-----------------MOCKUPs----------------------###

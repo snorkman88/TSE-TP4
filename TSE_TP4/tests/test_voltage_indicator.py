@@ -1,6 +1,6 @@
 import pytest
 import time
-from TSE_TP4.voltage_indicator import *
+from ..voltage_indicator import *
 
 """
 The HW will make use of the onboard RGB LED on the dev board to indicate 

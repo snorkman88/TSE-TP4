@@ -1,6 +1,5 @@
 import pytest
-import sys
-from TSE_TP4.compress_analog_reading_payload import compress_analog_reading_payload
+from ..compress_analog_reading_pyload import compress_analog_reading_payload
 
 ###--------------------------------TESTs------------------------------###
 def test_tipo_de_variable_invalido_str():
